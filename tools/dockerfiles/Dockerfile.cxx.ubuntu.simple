@@ -1,0 +1,30 @@
+# TODO: Set your preferred Ubuntu version
+FROM ubuntu:22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+# TODO: Set your preferred arguments
+ARG USERNAME=builder
+ARG UID=1000
+ARG GID=1000
+
+# TODO: Set/add your preferred packages
+RUN apt update &&               \
+    apt install -y              \
+    sudo                        \
+    git                         \
+    make                        \
+    cmake                       \
+    vim                         \
+    build-essential             \
+    g++                         \
+    clang                       \
+    bear
+
+# TODO: Set your preferred user's settings
+RUN useradd -m ${USERNAME}                    && \
+    echo "${USERNAME}:${USERNAME}" | chpasswd && \
+    adduser ${USERNAME} sudo
+USER ${USERNAME}
+
+CMD [ "/usr/bin/bash", "--login" ]
