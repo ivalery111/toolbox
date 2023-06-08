@@ -5,6 +5,7 @@ The main goal of this repository is to create a toolbox in which I'll collect kn
 ## Build systems
 ### CMake
 - [Simple template](./development/build_systems/cmake/simple/)  
+- [Conan template](./development/build_systems/cmake/conan/)
 
 # Tools
 ## Dockerfiles
